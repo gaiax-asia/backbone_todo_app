@@ -13,7 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require bootstrap
 // require turbolinks
 //= require underscore
 //= require backbone
-//= require_tree .
+//= require init
+//= require todos
+
+
+
