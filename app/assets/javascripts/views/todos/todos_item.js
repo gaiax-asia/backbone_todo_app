@@ -5,7 +5,9 @@ $(function(){
     events: {
       'click #todo-checkbox' : 'changeStatus',
       'click #edit-todo' : 'showEdit',
+      'dblclick' : 'showEdit',
       'click .icon-remove-circle' : 'hideEdit',
+      'blur #edit-todo-value':'hideEdit',
       'keypress #edit-todo-value' : 'updateOnEnter',
       'click #remove-todo' : 'removeTodo'
     },
@@ -24,12 +26,17 @@ $(function(){
     },
     showEdit: function(event){
       event.preventDefault();
+      TodosApp.currentRouter.navigate('/todos/'+ this.model.id +'/edit');
+      this.initEdit();
+    },
+    initEdit: function(){
       this.$el.find('#todo-editable').show()
       this.$el.find('#todo-display').hide()
       this.$el.find('#edit-todo-value').focus();
     },
     hideEdit: function(event){
       event.preventDefault();
+      TodosApp.currentRouter.navigate('/todos');
       this.render();
     },
     updateOnEnter: function(event){

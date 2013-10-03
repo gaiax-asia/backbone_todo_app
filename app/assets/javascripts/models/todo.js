@@ -1,9 +1,6 @@
 $(function(){
   TodosApp.Models.Todo = Backbone.Model.extend({
     urlRoot: '/todos',
-    defaults: {
-      status: 0
-    },
     validate: function(attrs, options){
       if(typeof attrs.item === "undefined" || attrs.item === null || attrs.item == ''){
         return "Item cannot be blank"
@@ -23,10 +20,12 @@ $(function(){
       else{
         new_status = 0;
       }
-      this.save({status: new_status},{wait: true})
+      this.save({status: new_status},{type: 'PUT', wait: true}) // force PUT requests
     },
     updateItem: function(item){
-      this.save({item: item},{wait: true})
+      if(item !== this.escape('item')){
+        this.save({item: item},{type: 'PUT',wait: true})
+      }
     }
   })
 });

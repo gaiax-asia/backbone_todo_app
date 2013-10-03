@@ -8,7 +8,7 @@ $(function(){
       if(Backbone.History.started == true){
         Bacbone.history.stop();
       }
-      Backbone.history.start();
+      Backbone.history.start({pushState: true});
     }
   }
 

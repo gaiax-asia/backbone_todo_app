@@ -1,8 +1,6 @@
 <script type="text/javascript">
-  $(document).ready(function(){
-    todos = new TodosApp.Collections.Todos(<%= @todos.to_json.html_safe %>);
-    todos_index = new TodosApp.Views.TodosIndex({collection: todos}).render();
-    $('div#main').append(todos_index.el);
+  $(function(){
+    TodosApp.currentRouter = new TodosApp.Routers.Todos(<%= @todos.to_json.html_safe %>);
   });
 </script>
 

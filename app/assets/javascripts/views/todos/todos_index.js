@@ -7,6 +7,7 @@ $(function(){
     events: {
       'click .icon-plus' : 'showAdd',
       'click #hide-add-todo' : 'hideAdd',
+      'blur #add-todo-value':'hideAdd',
       'keypress #add-todo-value' : 'saveOnEnter',
       'dblclick #add-todo' : 'showAdd'
 
@@ -15,6 +16,7 @@ $(function(){
       options = options || {}
       this.collection.on('add', this.addOne, this);
       this.collection.on('add:success',this.clearAdd, this);
+      this.todoItems = []
     },
     clearAdd: function(){
       this.$el.find('#todo-addable').hide();
@@ -30,15 +32,21 @@ $(function(){
       item_view = new TodosApp.Views.TodosItem({model: item});
       item_view.render();
       this.$el.find('.list').append(item_view.el);
+      this.todoItems.push(item_view);
     },
     showAdd: function(event){
       event.preventDefault();
+      TodosApp.currentRouter.navigate('/todos/new');
+      this.initAdd();
+    },
+    initAdd: function(){
       this.$el.find('#todo-addable').show();
       this.$el.find('#todo-display').hide();
       this.$el.find('#add-todo-value').focus();
     },
     hideAdd: function(event){
       event.preventDefault();
+      TodosApp.currentRouter.navigate('/todos');
       this.clearAdd();
     },
     saveOnEnter: function(event){

@@ -1,10 +1,10 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :edit, :update, :destroy]
+  before_action :set_todo, only: [:show, :update, :destroy]
+  before_action :todo_list, only: [:index, :new, :edit]
 
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.all
   end
 
   # GET /todos/1
@@ -14,11 +14,12 @@ class TodosController < ApplicationController
 
   # GET /todos/new
   def new
-    @todo = Todo.new
+    render action: :index
   end
 
   # GET /todos/1/edit
   def edit
+    render action: :index
   end
 
   # POST /todos
@@ -62,6 +63,9 @@ class TodosController < ApplicationController
   end
 
   private
+    def todo_list
+      @todos = Todo.all
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_todo
       @todo = Todo.find(params[:id])
