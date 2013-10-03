@@ -5,7 +5,7 @@ $(function(){
     events: {
       'click #todo-checkbox' : 'changeStatus',
       'click #edit-todo' : 'showEdit',
-      'dblclick' : 'showEdit',
+      'dblclick #todo-display-edit' : 'showEdit',
       'click .icon-remove-circle' : 'hideEdit',
       'blur #edit-todo-value':'hideEdit',
       'keypress #edit-todo-value' : 'updateOnEnter',
@@ -31,7 +31,7 @@ $(function(){
     },
     initEdit: function(){
       this.$el.find('#todo-editable').show()
-      this.$el.find('#todo-display').hide()
+      this.$el.find('#todo-display-edit').hide()
       this.$el.find('#edit-todo-value').focus();
     },
     hideEdit: function(event){

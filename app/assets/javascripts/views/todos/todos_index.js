@@ -9,7 +9,7 @@ $(function(){
       'click #hide-add-todo' : 'hideAdd',
       'blur #add-todo-value':'hideAdd',
       'keypress #add-todo-value' : 'saveOnEnter',
-      'dblclick #add-todo' : 'showAdd'
+      'dblclick #todo-display-add' : 'showAdd'
 
     },
     initialize: function(options){
@@ -20,7 +20,7 @@ $(function(){
     },
     clearAdd: function(){
       this.$el.find('#todo-addable').hide();
-      this.$el.find('#todo-display').show();
+      this.$el.find('#todo-display-add').show();
       this.$el.find('#add-todo-value').val(null);
     },
     render: function(){
@@ -41,7 +41,7 @@ $(function(){
     },
     initAdd: function(){
       this.$el.find('#todo-addable').show();
-      this.$el.find('#todo-display').hide();
+      this.$el.find('#todo-display-add').hide();
       this.$el.find('#add-todo-value').focus();
     },
     hideAdd: function(event){
