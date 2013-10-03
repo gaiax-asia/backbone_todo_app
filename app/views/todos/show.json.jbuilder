@@ -1,1 +1,1 @@
-json.extract! @todo, :status, :name, :description, :created_at, :updated_at
+json.extract! @todo, :status, :item, :created_at, :updated_at

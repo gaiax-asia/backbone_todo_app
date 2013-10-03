@@ -1,31 +1,35 @@
-<h1>Listing todos</h1>
+<script type="text/javascript">
+  $(document).ready(function(){
+    todos = new TodosApp.Collections.Todos(<%= @todos.to_json.html_safe %>);
+    todos_index = new TodosApp.Views.TodosIndex({collection: todos}).render();
+    $('div#main').append(todos_index.el);
+  });
+</script>
 
-<table>
-  <thead>
-    <tr>
-      <th>Status</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<script type="text/template" id="todo_index">
+  <div class="notebook" >
+    <div class="body">
+      <h4>Todos</h4>
+      <ul class="list">
+        <li id="add-todo">
+          <div class="lines" style="height:41px;"></div>
+          <span id="todo-display">add new todo</span>
+          <span id="todo-addable" style="display:none" ><input class="todo-item-input" id="add-todo-value" type="text"><i id="hide-add-todo" title="Cancel" class="icon-remove-circle"></i></span>
+          <span class="pull-right">
+          <i title="Add New Todo" class="icon-plus"></i>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</script>
 
-  <tbody>
-    <% @todos.each do |todo| %>
-      <tr>
-        <td><%= todo.status %></td>
-        <td><%= todo.name %></td>
-        <td><%= todo.description %></td>
-        <td><%= link_to 'Show', todo %></td>
-        <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Todo', new_todo_path %>
+<script type="text/template" id="todo_item">
+  <div class="lines" style="height:41px;"></div>
+  <span>
+    <i id="todo-checkbox" style="text-indent: -10px" title="Check Todo" class="icon-check{%todo.status == <%= Todo::PENDING %> ?'-empty' : '' %}"></i>
+    <span id="todo-display" class="{% todo.status == <%= Todo::DONE %> ? 'checked' : '' %}">{%todo.item%}</span>
+    <span id="todo-editable" style="display:none" ><input class="todo-item-input" id="edit-todo-value" value="{%todo.item%}" type="text"><i title="Cancel Edit" class="icon-remove-circle"></i></span>
+  </span>
+  <span class="pull-right"><i id="edit-todo" title="Edit Todo" class="icon-edit"></i><i id="remove-todo" title="Remove Todo" class="icon-remove"></i></span>
+</script>

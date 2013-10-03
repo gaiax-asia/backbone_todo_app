@@ -1,0 +1,51 @@
+.notebook .body {
+  background-color: #f5f5f5;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+.notebook h4 {
+  color: #cd0000;
+  font-size: 18px;
+  letter-spacing: -2px;
+  text-align: left;
+}
+.notebook .list {
+  color: #555;
+  font-size: 16px;
+  padding: 0 !important;
+  width: 100%;
+  font-family: courier, monospace;
+  border: 1px solid #dedede;
+}
+.notebook .list li {
+  list-style: none;
+  border-bottom: 1px dotted #ccc;
+  text-indent: 25px;
+  height: auto;
+  padding: 10px;
+  text-transform: capitalize;
+}
+.notebook .list li:hover {
+  background-color: #f0f0f0;
+  -webkit-transition: all 0.2s;
+  -moz-transition:    all 0.2s;
+  -ms-transition:     all 0.2s;
+  -o-transition:      all 0.2s;
+}
+.notebook .lines {
+  border-left: 1px solid #ffaa9f;
+  border-right: 1px solid #ffaa9f;
+  width: 2px;
+  float: left;
+  margin-top: -10px;
+  margin-left: 30px;
+}
+.notebook .checked {
+  text-decoration:line-through;
+}
+.notebook .todo-item-input {
+  margin-bottom: -5px !important;
+  margin-top: -5px !important;
+
+}

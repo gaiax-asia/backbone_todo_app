@@ -1,9 +1,8 @@
 class CreateTodos < ActiveRecord::Migration
   def change
     create_table :todos do |t|
-      t.integer :status
-      t.string :name
-      t.string :description
+      t.integer :status, :default => 0
+      t.string :item
 
       t.timestamps
     end

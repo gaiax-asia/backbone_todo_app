@@ -2,10 +2,8 @@
 
 one:
   status: 1
-  name: MyString
-  description: MyString
+  item: MyString
 
 two:
   status: 1
-  name: MyString
-  description: MyString
+  item: MyString
