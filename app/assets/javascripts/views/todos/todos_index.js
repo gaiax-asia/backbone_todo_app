@@ -9,13 +9,29 @@ $(function(){
       'click #hide-add-todo' : 'hideAdd',
       'blur #add-todo-value':'hideAdd',
       'keypress #add-todo-value' : 'saveOnEnter',
-      'dblclick #todo-display-add' : 'showAdd'
+      'dblclick #todo-display-add' : 'showAdd',
+      'click #filter-done' : 'filterDone',
+      'click #filter-pending' : 'filterPending',
+      'click #reset' : 'reset'
 
+    },
+    filterDone: function(event){
+      event.preventDefault();
+      this.render('done');
+    },
+    filterPending: function(event){
+      event.preventDefault();
+      this.render('pending');
+    },
+    reset: function(event){
+      event.preventDefault();
+      this.collection.trigger('reset');
     },
     initialize: function(options){
       options = options || {}
       this.collection.on('add', this.addOne, this);
       this.collection.on('add:success',this.clearAdd, this);
+      this.collection.on('reset',this.render,this);
       this.todoItems = []
     },
     clearAdd: function(){
@@ -23,9 +39,23 @@ $(function(){
       this.$el.find('#todo-display-add').show();
       this.$el.find('#add-todo-value').val(null);
     },
-    render: function(){
-      this.$el.html(this.template())
-      this.collection.forEach(this.addOne,this);
+    render: function(filter){
+      this.$el.html(this.template());
+      if(typeof filter !== 'undefined' && filter !== null){
+        collection = [];
+        _this = this;
+        if(filter === 'done'){
+          collection = this.collection.done();
+        }else if (filter === 'pending'){
+          collection = this.collection.pending();
+        }
+        _.each(collection,function(todo){
+          _this.addOne(todo);
+        });
+      }
+      else {
+        this.collection.forEach(this.addOne,this);
+      }
       return this
     },
     addOne: function(item){

@@ -12,6 +12,14 @@ $(function(){
           _this.trigger('add:success')
       }
       });
+    },
+    done: function(){
+      return this.filter(function( todo ) {
+        return (todo.get('status') == 1 );
+      });
+    },
+    pending: function(){
+      return this.without.apply(this, this.done());
     }
   });
 });
