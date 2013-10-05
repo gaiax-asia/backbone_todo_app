@@ -2,6 +2,7 @@ $(function(){
   TodosApp.Routers.Todos = Backbone.Router.extend({
     routes: {
       '(/todos)(/)' : 'index',
+      'todos/:filter/filter(/)' : 'filter',
       'todos/:id/edit(/)' : 'edit',
       'todos/new' : 'newTodo'
     },
@@ -12,6 +13,11 @@ $(function(){
       TodosApp.start();
     },
     index: function(){
+    },
+    filter: function(filter){
+      if(typeof filter !== 'undefined' && filter !== null){
+        this.todosView.render(filter);
+      }
     },
     edit: function(id){
       todoView = _.find(this.todosView.todoItems,function(item){

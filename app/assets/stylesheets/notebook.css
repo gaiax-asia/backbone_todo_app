@@ -2,6 +2,12 @@
   Source from http://www.sitepoint.com/pure-css3-paper-curls/
   and http://css-tricks.com/how-to-create-a-notebook-design-with-css/
 */
+body {
+  background-color: #f8ecc2 !important;
+  background-image:
+  linear-gradient(#ccc .1em, transparent .1em);
+  background-size: 100% 2em;
+}
 
 .notebook .body {
   width: 100%;
@@ -10,7 +16,8 @@
 }
 .notebook h4 {
   color: #cd0000;
-  font-size: 18px;
+  font-size: 22px;
+  font-family: 'Merienda One', Helvetica, sans-serif;;
   letter-spacing: -2px;
   text-align: left;
 }
@@ -19,7 +26,7 @@
   font-size: 16px;
   padding: 0 !important;
   width: 100%;
-  font-family: courier, monospace;
+  font-family: 'Merienda One', Helvetica, sans-serif;
   position: relative;
   margin: 0 auto;
   background-color: #fff;
@@ -67,7 +74,7 @@
   content: ' ';
   left: 12px;
   bottom: 12px;
-  background: transparent;
+  background-color: #fff;
   -webkit-transform: skew(-5deg) rotate(-5deg);
   -moz-transform: skew(-5deg) rotate(-5deg);
   -ms-transform: skew(-5deg) rotate(-5deg);
@@ -94,5 +101,15 @@
 {
   color: #555 !important;
   text-indent: 7px;
+
+}
+
+input[type=text]
+{
+  border: none;
+  background: transparent;
+  color: #555;
+  font-size: 16px;
+  font-family: 'Merienda One', Helvetica, sans-serif;
 
 }

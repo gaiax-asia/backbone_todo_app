@@ -1,5 +1,10 @@
 BackboneTodoApp::Application.routes.draw do
-  resources :todos
+
+  resources :todos do
+    member do
+      get 'filter' => 'todos#index'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -41,7 +46,7 @@ BackboneTodoApp::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

@@ -17,14 +17,17 @@ $(function(){
     },
     filterDone: function(event){
       event.preventDefault();
+      TodosApp.currentRouter.navigate('/todos/done/filter');
       this.render('done');
     },
     filterPending: function(event){
       event.preventDefault();
+      TodosApp.currentRouter.navigate('/todos/pending/filter');
       this.render('pending');
     },
     reset: function(event){
       event.preventDefault();
+      TodosApp.currentRouter.navigate('/todos');
       this.collection.trigger('reset');
     },
     initialize: function(options){
@@ -49,9 +52,11 @@ $(function(){
         }else if (filter === 'pending'){
           collection = this.collection.pending();
         }
-        _.each(collection,function(todo){
-          _this.addOne(todo);
-        });
+        if(collection !== []){
+          _.each(collection,function(todo){
+            _this.addOne(todo);
+          });
+        }
       }
       else {
         this.collection.forEach(this.addOne,this);
