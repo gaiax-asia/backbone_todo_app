@@ -6,6 +6,8 @@ body {
   background-color: #f8ecc2 !important;
   background-image:
   linear-gradient(#ccc .1em, transparent .1em);
+  background-image:
+  -webkit-linear-gradient(#ccc .1em, transparent .1em);
   background-size: 100% 2em;
 }
 
