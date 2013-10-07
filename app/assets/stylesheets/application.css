@@ -12,11 +12,16 @@
  *= require_tree .
  */
 
+.push {
+  height: 10em;
+}
 
 #footer {
   color: #ffffff;
+  position: fixed;
   height: 5em;
-  position: relative;
+  width: 100%;
+  bottom:0;
   background:
   linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
   linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
@@ -49,19 +54,17 @@
 
 #footer #github_and_company {
   width: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
 
 #github {
-  position: relative;
+  position: fixed;
   text-indent:5px;
   padding-bottom:10px;
+  bottom: 0;
 }
 
 #company {
-  position: relative;
   padding-right:10px;
-  padding-bottom:-5px;
-
 }
