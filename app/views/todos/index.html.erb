@@ -17,7 +17,7 @@
     </h4>
       <ul class="list">
         <li id="add-todo">
-          <div class="lines" style="height:41px;"></div>
+          <div class="lines"></div>
           <span id="todo-display-add">
             add new todo
           </span>
@@ -35,7 +35,7 @@
 </script>
 
 <script type="text/template" id="todo_item">
-  <div class="lines" style="height:41px;"></div>
+  <div class="lines"></div>
   <span>
     <i id="todo-checkbox" style="text-indent: -10px" title="Check Todo" class="icon-check{%todo.status == <%= Todo::PENDING %> ?'-empty' : '' %}"></i>
     <span id="todo-display-edit" class="{% todo.status == <%= Todo::DONE %> ? 'checked' : '' %}">
