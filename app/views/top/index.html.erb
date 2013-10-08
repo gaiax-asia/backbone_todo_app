@@ -1,0 +1,28 @@
+<h1 class="text" >Select what the TodoApp is made of.</h1>
+<div class="push"></div>
+<div class="container-fluid">
+
+  <%= image_tag "backbone.png", class: 'span6 shake',
+                                id: 'bbapp',
+                                title: 'The app is made with Backbone and plain Javascript',
+                                style: 'height:10em;width:30%;'  %>
+  <%= image_tag "marionette.png", class: 'span6 shake',
+                                id: 'bbmapp',
+                                title: 'The app is made with Backbone wrapped in Marionette and Coffeescript',
+                                style: 'height:17em;width:30%;padding-left:30%;'  %>
+</div>
+
+
+<script type="text/javascript">
+$(function(){
+  $('#bbapp').on('click',function(e){
+    e.preventDefault();
+    window.location = "<%= todos_path %>"
+  });
+
+  $('#bbmapp').on('click',function(e){
+    e.preventDefault();
+    window.location = "<%= marionette_todos_path %>"
+  });
+});
+</script>

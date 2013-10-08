@@ -16,6 +16,11 @@
   height: 10em;
 }
 
+
+.text {
+  font-family: courier, monospace;
+}
+
 #footer {
   color: #ffffff;
   position: fixed;

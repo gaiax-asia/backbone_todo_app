@@ -1,5 +1,5 @@
 #= require backbone.marionette
-#= require ./models/marionette_todo
-#= require ./collections/marionette_todos
-#= require_directory ./views/marionette_todos/
-#= require ./routers/marionette_todos_router
+#= require ./marionette/models/marionette_todo
+#= require ./marionette/collections/marionette_todos
+#= require_directory ./marionette/views/marionette_todos/
+#= require ./marionette/routers/marionette_todos_router

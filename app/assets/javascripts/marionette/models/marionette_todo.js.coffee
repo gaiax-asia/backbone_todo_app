@@ -12,7 +12,7 @@ jQuery ->
       alert(error)
 
     changeStatus: () ->
-      new_status = if @escape('status') is 0
+      new_status = if parseInt(@escape('status')) is 0
         1
       else
         0
