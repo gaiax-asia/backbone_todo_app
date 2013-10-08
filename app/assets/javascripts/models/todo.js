@@ -24,7 +24,6 @@ $(function(){
     },
     updateItem: function(item){
       if(item !== this.escape('item')){
-        console.log(this)
         this.sync('update',this.set({item: item}),{wait: true})
       }
     }

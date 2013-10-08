@@ -17,8 +17,3 @@
 // require turbolinks
 //= require underscore
 //= require backbone
-//= require init
-//= require todos
-
-
-

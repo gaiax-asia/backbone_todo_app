@@ -6,6 +6,12 @@ BackboneTodoApp::Application.routes.draw do
     end
   end
 
+  resources :marionette_todos do
+    member do
+      get 'filter' => 'marionette_todos#index'
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

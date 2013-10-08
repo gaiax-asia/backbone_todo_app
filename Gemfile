@@ -38,9 +38,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development do 
+group :development do
   gem 'guard-pow'
 end
+
+#gem 'faye'
+#gem 'thin'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

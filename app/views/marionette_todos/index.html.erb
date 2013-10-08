@@ -1,10 +1,9 @@
-
-<%= javascript_include_tag "init.js"%>
-<%= javascript_include_tag "todos.js"%>
+<%= javascript_include_tag "marionette_init.js"%>
+<%= javascript_include_tag "marionette_todos.js"%>
 
 <script type="text/javascript">
   $(function(){
-    TodosApp.currentRouter = new TodosApp.Routers.Todos(<%= @todos.to_json.html_safe %>);
+    MarionetteTodosApp.currentRouter = new MarionetteTodosApp.Routers.Todos(<%= @todos.to_json.html_safe %>);
   });
 </script>
 
