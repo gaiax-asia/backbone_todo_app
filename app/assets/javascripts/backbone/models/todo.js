@@ -20,11 +20,12 @@ $(function(){
       else{
         new_status = 0;
       }
-      this.sync('update',this.set({status: new_status}),{wait: true}) // force PUT requests
+      this.sync('update',this.set({status: new_status},{validate: true}),{wait: true}) // force PUT requests
     },
     updateItem: function(item){
       if(item !== this.escape('item')){
-        this.sync('update',this.set({item: item}),{wait: true})
+        this.sync('update',this.set({item: item},{validate: true}),{wait: true})
+        this.trigger('success:update')
       }
     }
   })

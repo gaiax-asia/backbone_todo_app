@@ -1,7 +1,9 @@
 jQuery ->
-  class MarionetteTodosApp.Views.TodosItem extends Backbone.View
+  class MarionetteTodosApp.Views.TodosItem extends Backbone.Marionette.ItemView
     tagName: 'li'
-    template: _.template($('#todo_item').html())
+    template: (serialized_todo) ->
+      _.template($('#todo_item').html(), {todo: serialized_todo})
+
     events: {
       'click #todo-checkbox' : 'changeStatus'
       'click #edit-todo' : 'showEdit'
@@ -11,14 +13,11 @@ jQuery ->
       'keypress #edit-todo-value' : 'updateOnEnter'
       'click #remove-todo' : 'removeTodo'
     }
+
     initialize: (options = {}) ->
       @model.on('change', @render, @)
       @model.on('success:update',@navIndex, @)
       @model.on('destroy', @remove, @)
-
-    render: () ->
-      @$el.html(@template({todo: @model.toJSON()}))
-      return @
 
     navIndex: (event) ->
       event.preventDefault() if event?

@@ -1,5 +1,5 @@
 jQuery ->
-  class MarionetteTodosApp.Routers.Todos extends Backbone.Router
+  class MarionetteTodosApp.Routers.Todos extends Backbone.Marionette.AppRouter
     routes: {
       '(/marionette_todos)(/)' : 'index'
       'marionette_todos/:filter/filter(/)' : 'filter'

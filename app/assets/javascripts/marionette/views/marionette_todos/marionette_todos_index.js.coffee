@@ -1,8 +1,10 @@
 jQuery ->
-  class MarionetteTodosApp.Views.TodosIndex extends Backbone.View
+  class MarionetteTodosApp.Views.TodosIndex extends Backbone.Marionette.CompositeView
     tagName: 'div'
     className: 'todos'
     template: _.template($('#todo_index').html()) #_.template($('#todo_index').html())
+    itemViewContainer: 'ul.list'
+    itemView: MarionetteTodosApp.Views.TodoItem
 
     events: {
       'click .icon-plus' : 'showAdd'
@@ -29,7 +31,11 @@ jQuery ->
     reset: (event) ->
       event.preventDefault()
       MarionetteTodosApp.currentRouter.navigate('/marionette_todos')
-      @collection.trigger('reset')
+      @collection.fetch({
+        success: =>
+          @collection.trigger('reset')
+        wait: true
+      })
 
     initialize: (options = {}) ->
       @collection.on('add', @addOne, @)

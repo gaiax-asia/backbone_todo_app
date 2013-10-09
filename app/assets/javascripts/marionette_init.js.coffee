@@ -1,9 +1,10 @@
 jQuery ->
   window.MarionetteTodosApp = {
-    Views: {},
-    Models: {},
-    Collections: {},
-    Routers: {},
+    Views: {}
+    Models: {}
+    Collections: {}
+    Controllers: {}
+    Routers: {}
     start: ->
       if Backbone.History.started == true
         Bacbone.history.stop()

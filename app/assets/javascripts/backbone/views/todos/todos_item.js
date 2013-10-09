@@ -14,12 +14,17 @@ $(function(){
     initialize: function(options){
       options = options || {}
       this.model.on('change', this.render, this);
+      this.model.on('success:update',this.navIndex, this)
       this.model.on('destroy', this.remove, this);
     },
     render: function(){
       this.$el.html(this.template({todo: this.model.toJSON()}))
       return this
     },
+    navIndex: function (){
+      TodosApp.currentRouter.navigate("/todos")
+    },
+
     changeStatus: function(event){
       event.preventDefault();
       this.model.changeStatus();
